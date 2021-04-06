@@ -5,6 +5,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import SignIn from './Components/SignIn';
 import Keyword from './Components/Keyword';
 import Language from './Components/Language';
+import Panels from './Components/Panels';
 import Dashboard from './Components/Dashboard';
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
 				<Route exact path='/' component={SignIn} />
 				<Route path='/createkeyword' component={Keyword} />
 				<Route path='/selectlanguange' component={Language} />
-				<Route path='/projects' component={Dashboard} />
+				<Route path='/panels' component={Panels} />
+				<Route path='/projects/results' component={Dashboard} />
 			</Switch>
 		</div>
 	);

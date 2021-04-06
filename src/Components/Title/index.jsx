@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles((theme) => ({
     title: {
         fontSize: "medium",
-        color: "#4287f5"
+        color: "#3F51B5"
     }
 }));
 

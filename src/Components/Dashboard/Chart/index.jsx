@@ -5,12 +5,12 @@ import {
 } from '@material-ui/core' 
 import { useTheme, makeStyles } from '@material-ui/core/styles';
 import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
-import Title from '../Title';
+import Title from '../../Title';
 import { 
     numberOfMentionsDays,
     numberOfMentionsWeeks,
     numberOfMentionsMonths
-} from '../TemporaryData'
+} from '../TemporaryData';
 
 const useStyles = makeStyles((theme) => ({
     responsiveContainerBox: {
@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
         // color: "#4287f5"
     },
     showSentimentBtnTime: {
-        // color: "#4287f5",
         marginRight: "5px"
     },
     filterTimeBox: {

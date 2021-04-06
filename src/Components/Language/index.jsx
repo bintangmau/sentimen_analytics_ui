@@ -103,7 +103,7 @@ export default function Language() {
                                 <MenuItem value={30}>Javanese</MenuItem>
                                 </Select>
                             </FormControl>
-                            <RoutePath to='/projects' style={{ textDecoration: "none" }} xs={4} >
+                            <RoutePath to='/projects/results' style={{ textDecoration: "none" }} xs={4} >
                                 <Button
                                     fullWidth
                                     variant="contained"
