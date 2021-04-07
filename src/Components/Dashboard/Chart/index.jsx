@@ -1,30 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     Grid,
-    Button
+    Button,
+    Typography
 } from '@material-ui/core' 
 import { useTheme, makeStyles } from '@material-ui/core/styles';
 import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
-import Title from '../../Title';
-import { 
-    numberOfMentionsDays,
-    numberOfMentionsWeeks,
-    numberOfMentionsMonths
-} from '../TemporaryData';
+import { numberOfMentionsWeeks } from '../TemporaryData';
 
 const useStyles = makeStyles((theme) => ({
     responsiveContainerBox: {
         marginTop: "10px"
     },
     showSentimentBtn: {
-        // color: "#4287f5"
+        [theme.breakpoints.down("md")]: {
+            marginBottom: 10
+        },
     },
     showSentimentBtnTime: {
-        marginRight: "5px"
+        marginRight: 2
     },
     filterTimeBox: {
         display: "flex",
         flexDirection: "space-between"
+    },
+    chartTypeBox: {
+        display: "flex",
+        flexDirection: "space-between"
+    },
+    chartType: {
+        width: "20px",
+        height: "3px",
+        backgroundColor: "red",
+        marginTop: 10,
+        marginRight: 10
     }
 }))
 
@@ -32,14 +41,32 @@ export default function Chart(props) {
     const theme = useTheme();   
     const classes = useStyles()
     const { showSentiment, setShowSentiment } = props
+    const chartTypes = [
+        { name: "Number of mentions", color: "red" },
+        { name: "Social media reach", color: "blue" },
+        { name: "Non social reach", color: "green" },
+    ]
 
     const handleShowSentiment = () => {
         setShowSentiment(!showSentiment)
     }
+
+    const renderChartTypes = () => {
+        return chartTypes.map((val, idx) => {
+            return (
+                <Grid item lg={2} md={4} sm={12} xs={12} direction="row" className={classes.chartTypeBox}>
+                    <div style={{ display: "flex" }}>
+                        <div className={classes.chartType} style={{ backgroundColor: `${val.color}` }}></div>
+                        <Typography style={{ fontSize: "small" }}>{val.name}</Typography>
+                    </div>
+                </Grid>
+            )
+        })
+    }
     return (
         <React.Fragment>
             <Grid container>
-                <Grid item xs={12} md={12} lg={8}>
+                <Grid item xs={6} md={9} lg={9}>
                     <Button 
                         variant="outlined"
                         size="small"
@@ -49,39 +76,32 @@ export default function Chart(props) {
                         { showSentiment ? "Hide Sentiment" : "Show Sentiment" }
                     </Button>
                 </Grid>
-                <Grid item spacing={10} xs={12} md={12} lg={4} className={classes.filterTimeBox}>
+                <Grid item xs={6} md={3} lg={3} className={classes.filterTimeBox}>
                     <Button 
-                        variant="outlined"
                         size="small"
                         className={classes.showSentimentBtnTime}
                     >
                         Days
                     </Button>
                     <Button 
-                        variant="outlined"
                         size="small"
                         className={classes.showSentimentBtnTime}
                     >
                         Weeks
                     </Button>
                     <Button 
-                        variant="outlined"
                         size="small"
                         className={classes.showSentimentBtnTime}
                     >
                         Months
                     </Button>
-                    <Button 
-                        variant="outlined"
-                        size="small"
-                        className={classes.showSentimentBtn}
-                    >
-                        Last 30 Days
-                    </Button>
                 </Grid>
             </Grid>
             <div style={{ marginTop: "15px" }}/>
-            <Title>Today</Title>
+            <Grid container>
+                {renderChartTypes()}
+            </Grid>
+            <div style={{ marginTop: "15px" }}/>
             <ResponsiveContainer>
                 <LineChart
                     data={numberOfMentionsWeeks}

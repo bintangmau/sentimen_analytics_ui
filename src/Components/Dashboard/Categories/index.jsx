@@ -43,15 +43,21 @@ const useStyles = makeStyles((theme) => ({
     filterBox: {
         marginTop: 30
     },
-    textField: {
-
+    searcBtn: {
+        [theme.breakpoints.down("md")]: {
+            // paddingLeft: 8,
+            // paddingRight: 8,
+            "& .MuiButton-startIcon": {
+                margin: 0,
+                // height: "100%",
+            }
+        }
     },
-    formControl: {
-        // margin: theme.spacing(1),
-    },
-    selectEmpty: {
-        // marginTop: theme.spacing(1),
-    },
+    searchBtnText: {
+        [theme.breakpoints.down("md")]: {
+            display: "none"
+        }
+    }
 }))
 export default function Categories() {
     const classes = useStyles()
@@ -120,14 +126,13 @@ export default function Categories() {
             </Grid>
 
             <Grid container className={classes.filterBox} spacing={2}>
-                <Grid item xs={6} lg={3}>
-                    <FormControl size="small" variant="outlined" className={classes.formControl} xs={8} md={8} lg={8} fullWidth>
+                <Grid item xs={4}>
+                    <FormControl size="small" variant="outlined" xs={8} md={8} lg={8} fullWidth>
                         <Select
                             labelId="demo-simple-select-outlined-label"
                             id="demo-simple-select-outlined"
                             value={sortType}
                             onChange={handleChange}
-                            className={classes.selectEmpty}
                             displayEmpty={true}
                             IconComponent={() => (
                                 <SortIcon
@@ -139,21 +144,20 @@ export default function Categories() {
                         </Select>
                     </FormControl>
                 </Grid>
-                <Grid item xs={6} lg={9}>
+                <Grid item xs={8}>
                     <Grid container spacing={1}> 
-                        <Grid item xs ={8}>
+                        <Grid item xs ={9}>
                             <form noValidate >
                                 <TextField 
                                     size="small"
                                     id="outlined-basic" 
                                     label="Search in mentions" 
                                     variant="outlined" 
-                                    className={classes.textField}
                                     fullWidth
                                 />
                             </form>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={3}>
                             {/* <IconButton
                                 // variant="contained"
                                 color="primary"
@@ -165,8 +169,10 @@ export default function Categories() {
                                 variant="contained"
                                 color="primary"
                                 startIcon={<SearchIcon />}
+                                fullWidth
+                                className={classes.searcBtn}
                             >
-                                Search
+                                <span className={classes.searchBtnText}>Search</span>
                             </Button>
                         </Grid>
                     </Grid>

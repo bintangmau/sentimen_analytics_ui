@@ -11,7 +11,8 @@ import Paper from '@material-ui/core/Paper';
 import Navbar from './Navbar';
 import Drawer from './Drawer';
 import Chart from './Chart';
-import Deposits from './Deposits';
+import Filters from './Filters';
+import News from './News';
 import Orders from './Orders';
 import Categories from './Categories';
 import Copyright from '../Copyright';
@@ -19,7 +20,7 @@ import Copyright from '../Copyright';
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        backgroundColor: "#DDDDE6"
+        backgroundColor: "#F1F1F3"
     },
     appBarSpacer: theme.mixins.toolbar,
     content: {
@@ -40,9 +41,11 @@ const useStyles = makeStyles((theme) => ({
     fixedHeight: {
         height: 250,
     },
+    filterHeight: {
+        height: 500
+    },
     charts: {
-        height: 500,
-        borderRadius: "15px"
+        height: 500
     },
 }));
 
@@ -58,6 +61,7 @@ export default function Dashboard() {
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const fixedHeightChart = clsx(classes.paper, classes.charts);
+    const filterHeightPaper = clsx(classes.paper, classes.filterHeight);
 
     return (
         <div className={classes.root}>
@@ -90,17 +94,30 @@ export default function Dashboard() {
                     :
                     null
                 }
-                <Grid item xs={12} md={8} lg={9}>
-                    <Paper className={fixedHeightPaper}>
-                        <Categories />
-                    </Paper>
+                <Grid item xs={12} md={8} lg={8} spacing={3}>
+
+                    <Grid item xs={12} md={12} lg={12}>
+                        <Paper className={fixedHeightPaper}>
+                            <Categories />
+                        </Paper>
+                    </Grid>
+
+                    <div style={{marginTop: 20}}></div>
+
+                    <Grid item xs={12} md={12} lg={12}>
+                        <Paper className={fixedHeightPaper}>
+                            <News />
+                        </Paper>
+                    </Grid>
+
                 </Grid>
                 {/* Recent Deposits */}
-                <Grid item xs={12} md={4} lg={3}>
-                    <Paper className={fixedHeightPaper}>
-                        <Deposits />
+                <Grid item xs={12} md={4} lg={4}>
+                    <Paper className={filterHeightPaper}>
+                        <Filters />
                     </Paper>
                 </Grid>
+            
                 {/* Recent Orders */}
                 <Grid item xs={12}>
                     <Paper className={classes.paper}>
