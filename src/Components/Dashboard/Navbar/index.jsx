@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -51,23 +52,26 @@ export default function Navbar(props) {
     return (
         <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
             <Toolbar className={classes.toolbar}>
-            <IconButton
-                edge="start"
-                color="inherit"
-                aria-label="open drawer"
-                onClick={handleDrawerOpen}
-                className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-            >
-                <MenuIcon color="primary" />
-            </IconButton>
-            <Typography component="h2" variant="h6" color="inherit" noWrap className={classes.title}>
-                Sentimen Analytics
-            </Typography>
-            <IconButton color="inherit" className={classes.notificationButton}>
-                <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-                </Badge>
-            </IconButton>
+                <IconButton
+                    edge="start"
+                    color="inherit"
+                    aria-label="open drawer"
+                    onClick={handleDrawerOpen}
+                    className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
+                >
+                    <MenuIcon color="primary" />
+                </IconButton>
+                <Typography component="h2" variant="h6" color="inherit" noWrap className={classes.title}>
+                    Sentimen Analytics
+                </Typography>
+                <IconButton color="inherit" className={classes.notificationButton}>
+                    <Badge badgeContent={4} color="secondary">
+                    <NotificationsIcon />
+                    </Badge>
+                </IconButton>
+                <IconButton color="inherit">
+                        <AccountCircleIcon />
+                </IconButton>
             </Toolbar>
         </AppBar>
     )

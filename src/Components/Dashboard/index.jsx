@@ -16,6 +16,7 @@ import News from './News';
 import Orders from './Orders';
 import Categories from './Categories';
 import Copyright from '../Copyright';
+import Footer from '../Footer';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -44,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
     filterHeight: {
         height: 500
     },
+    newsHeight: {
+        height: "auto",
+        marginTop: 20
+    },
     charts: {
         height: 500
     },
@@ -62,6 +67,7 @@ export default function Dashboard() {
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
     const fixedHeightChart = clsx(classes.paper, classes.charts);
     const filterHeightPaper = clsx(classes.paper, classes.filterHeight);
+    const newsHeightPaper = clsx(classes.paper, classes.newsHeight);
 
     return (
         <div className={classes.root}>
@@ -102,10 +108,23 @@ export default function Dashboard() {
                         </Paper>
                     </Grid>
 
-                    <div style={{marginTop: 20}}></div>
-
                     <Grid item xs={12} md={12} lg={12}>
-                        <Paper className={fixedHeightPaper}>
+                        <Paper className={newsHeightPaper}>
+                            <News />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} md={12} lg={12}>
+                        <Paper className={newsHeightPaper}>
+                            <News />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} md={12} lg={12}>
+                        <Paper className={newsHeightPaper}>
+                            <News />
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={12} md={12} lg={12}>
+                        <Paper className={newsHeightPaper}>
                             <News />
                         </Paper>
                     </Grid>
@@ -129,6 +148,7 @@ export default function Dashboard() {
                 <Copyright />
             </Box>
             </Container>
+            <Footer />
         </main>
         </div>
     );
