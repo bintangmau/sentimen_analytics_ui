@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -10,7 +9,6 @@ import Paper from '@material-ui/core/Paper';
 // MODULES
 import Navbar from './Navbar';
 import Drawer from './Drawer';
-import Copyright from '../Copyright';
 import Projects from './Projects';
 
 const useStyles = makeStyles((theme) => ({
@@ -73,9 +71,6 @@ export default function Dashboard() {
                         </Paper>
                     </Grid>
                 </Grid>
-                <Box pt={4}>
-                    <Copyright />
-                </Box>
                 </Container>
             </main>
         </div>

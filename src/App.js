@@ -5,7 +5,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import SignIn from './Components/SignIn';
 import Keyword from './Components/Keyword';
 import Language from './Components/Language';
-import Panels from './Components/Panels';
+import Panels from './Components/Dashboard/Panels';
 import Dashboard from './Components/Dashboard';
 
 function App() {
