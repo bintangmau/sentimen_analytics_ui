@@ -60,14 +60,14 @@ export default function Content() {
                     justify="space-between"  
                     alignItems="center"
                     >
-                    <Grid item xs={9}>
+                    <Grid item xs={9} sm={12} md={12} lg={9}>
                         <Typography
                             className={classes.contentHeader}
                             >
                             Ini adalah judul dari sebuah berita
                         </Typography>
                     </Grid>
-                    <Grid item style={{ display: "flex" }} xs={3}>
+                    <Grid item style={{ display: "flex" }} xs={4} sm={4} md={4} lg={2}>
                         <EventNoteRoundedIcon 
                             className={classes.dateIcon}
                             />

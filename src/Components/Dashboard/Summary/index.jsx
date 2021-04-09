@@ -59,7 +59,7 @@ export default function Summary() {
                     </Grid>
 
                     {/* TAB MENTIONS */}
-                    <Grid item  xs={6}>
+                    <Grid item xs={12} sm={12} md={12} lg={6}>
                         <Paper className={tabMentionsHeightPaper}>
                             <TabMentions />
                         </Paper>

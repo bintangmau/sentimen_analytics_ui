@@ -85,6 +85,7 @@ return (
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0} dir={theme.direction}>
+                    <div style={{ marginTop: 10 }}></div>
                     <Content />
                     <Content />
                     <Content />
@@ -93,7 +94,13 @@ return (
                     <Content />
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    Item Two
+                    <div style={{ marginTop: 10 }}></div>
+                    <Content />
+                    <Content />
+                    <Content />
+                    <Content />
+                    <Content />
+                    <Content />
                 </TabPanel>
             </SwipeableViews>
         </div>
