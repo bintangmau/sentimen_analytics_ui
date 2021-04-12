@@ -67,7 +67,7 @@ export default function Content() {
                             Ini adalah judul dari sebuah berita
                         </Typography>
                     </Grid>
-                    <Grid item style={{ display: "flex" }} xs={4} sm={4} md={4} lg={2}>
+                    <Grid item style={{ display: "flex" }} xs={4} sm={4} md={4} lg={3}>
                         <EventNoteRoundedIcon 
                             className={classes.dateIcon}
                             />

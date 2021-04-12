@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Footer from '../Footer';
 import Filters from './Filters';
 import TabMentions from './TabMentions';
+import Counts from './Counts';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -62,6 +63,12 @@ export default function Summary() {
                     <Grid item xs={12} sm={12} md={12} lg={6}>
                         <Paper className={tabMentionsHeightPaper}>
                             <TabMentions />
+                        </Paper>
+                    </Grid>
+
+                    <Grid item xs={12} sm={12} md={12} lg={6}>
+                        <Paper className={tabMentionsHeightPaper}>
+                            <Counts />
                         </Paper>
                     </Grid>
 
